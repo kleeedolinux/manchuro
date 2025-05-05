@@ -114,9 +114,102 @@
             75% { border-radius: 40% 60% 70% 30% / 60% 40% 20% 80%; }
             100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
         }
+        
+        /* Charter Button Styles */
+        .charter-button {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            z-index: 1000;
+            transform-origin: bottom right;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .charter-button:hover {
+            transform: scale(1.05);
+        }
+        
+        .charter-button-inner {
+            background: linear-gradient(135deg, #1E40AF, #3B82F6, #34D399);
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.3);
+            backdrop-filter: blur(4px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            padding: 12px 20px;
+            color: white;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .charter-button-inner:hover {
+            box-shadow: 0 8px 32px rgba(52, 211, 153, 0.4);
+        }
+        
+        .charter-icon {
+            margin-right: 10px;
+            animation: pulse-slow 2s infinite;
+        }
+        
+        .charter-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(90deg, #1E40AF, #3B82F6, #34D399);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+            z-index: 1000;
+            transform: translateY(-100%);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .charter-banner.show {
+            transform: translateY(0);
+        }
+        
+        .charter-banner a {
+            color: white;
+            text-decoration: underline;
+            margin-left: 10px;
+        }
+        
+        /* Pulse animation */
+        @keyframes pulse-slow {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.8;
+                transform: scale(1.05);
+            }
+        }
     </style>
 </head>
 <body class="bg-white text-gray-800 font-sans animated-bg">
+    <!-- Charter Banner -->
+    <div id="charter-banner" class="charter-banner">
+        📜 Access our official charter document: 
+        <a href="https://docs.google.com/document/d/1dRHhzeiULLeLBVB1JcZQaQ6pCtPok6fxkIZXWpbTYBY/edit?usp=sharing" target="_blank">
+            Charter of the Manchuro Climate Accord
+        </a>
+        <button id="close-banner" class="ml-4 focus:outline-none">×</button>
+    </div>
+
+    <!-- Charter Floating Button -->
+    <div class="charter-button">
+        <a href="https://docs.google.com/document/d/1dRHhzeiULLeLBVB1JcZQaQ6pCtPok6fxkIZXWpbTYBY/edit?usp=sharing" target="_blank" class="charter-button-inner">
+            <svg class="charter-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+            <span>Read Our Charter</span>
+        </a>
+    </div>
+
     <!-- Hero Section -->
     <header class="relative overflow-hidden wave-bottom">
         <!-- Background Elements -->
@@ -393,5 +486,19 @@
     </footer>
     
     <script src="script.js"></script>
+    <script>
+        // Charter banner functionality
+        $(document).ready(function() {
+            // Show banner after delay
+            setTimeout(function() {
+                $('#charter-banner').addClass('show');
+            }, 1500);
+            
+            // Close banner when clicked
+            $('#close-banner').on('click', function() {
+                $('#charter-banner').removeClass('show');
+            });
+        });
+    </script>
 </body>
 </html> 
