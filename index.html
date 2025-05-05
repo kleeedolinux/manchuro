@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manchuro Climate Accord</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mcaGreen: '#34D399',
+                        mcaBlue: '#3B82F6',
+                        mcaDarkBlue: '#1E40AF'
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'bounce': 'bounce 1s infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .clock-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+        }
+        
+        .clock-ring {
+            stroke-dasharray: 283;
+            stroke-dashoffset: 0;
+            transform-origin: center;
+            transform: rotate(-90deg);
+            transition: stroke-dashoffset 1s ease-in-out;
+        }
+        
+        .animate-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .animate-delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .animate-delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .animate-delay-3 {
+            animation-delay: 0.6s;
+        }
+        
+        .animate-delay-4 {
+            animation-delay: 0.8s;
+        }
+        
+        .blob {
+            animation: blob 7s infinite;
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        }
+        
+        @keyframes blob {
+            0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+            25% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+            50% { border-radius: 50% 60% 30% 70% / 30% 60% 70% 40%; }
+            75% { border-radius: 40% 60% 70% 30% / 60% 40% 20% 80%; }
+            100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800 font-sans animated-bg">
+    <!-- Hero Section -->
+    <header class="relative overflow-hidden wave-bottom">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 z-0">
+            <div class="blob absolute -top-20 -right-20 w-96 h-96 bg-mcaGreen/10 opacity-70 parallax" data-speed="0.03"></div>
+            <div class="blob absolute top-40 -left-40 w-80 h-80 bg-mcaBlue/10 opacity-60 animate-delay-2 parallax" data-speed="0.05"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 py-16 relative z-10">
+            <nav class="flex justify-between items-center mb-16">
+                <div class="text-2xl font-bold text-mcaDarkBlue flex items-center">
+                    <img src="logo.png" alt="Manchuro Climate Accord Logo" class="w-10 h-10 mr-2 rounded-full">
+                    Manchuro Climate Accord
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#mission" class="text-gray-700 hover:text-mcaBlue transition-colors">Mission</a>
+                    <a href="#urgency" class="text-gray-700 hover:text-mcaBlue transition-colors">Urgency</a>
+                    <a href="#progress" class="text-gray-700 hover:text-mcaBlue transition-colors">Progress</a>
+                    <a href="#join" class="text-gray-700 hover:text-mcaBlue transition-colors">Join Us</a>
+                </div>
+            </nav>
+            
+            <div class="flex flex-col-reverse md:flex-row items-center">
+                <div class="md:w-1/2 mt-8 md:mt-0 opacity-0 animate-in">
+                    <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6 gradient-text">
+                        Uniting Micronations Against Climate Change
+                    </h1>
+                    <p class="text-xl text-gray-600 mb-8">
+                        Together, we can create a sustainable future for our planet—the only home we have.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#join" class="px-8 py-4 bg-gradient-to-r from-mcaBlue to-mcaGreen text-white font-bold rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 btn-hover-effect">
+                            Join the Movement
+                        </a>
+                        <a href="#mission" class="px-8 py-4 border-2 border-mcaBlue text-mcaBlue font-bold rounded-full hover:bg-mcaBlue hover:text-white transition-all duration-300">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2 flex justify-center opacity-0 animate-in animate-delay-1">
+                    <div class="relative animate-float">
+                        <div class="clock-container pulse-element">
+                            <svg width="300" height="300" viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="45" fill="none" stroke="#E5E7EB" stroke-width="5" />
+                                <circle class="clock-ring" cx="50" cy="50" r="45" fill="none" stroke="url(#gradient)" stroke-width="5" />
+                                <defs>
+                                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stop-color="#3B82F6" />
+                                        <stop offset="100%" stop-color="#34D399" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                            <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+                                <div class="text-4xl font-bold text-mcaDarkBlue" id="years">4</div>
+                                <div class="text-xl font-bold text-gray-600" id="days">91</div>
+                                <div class="text-sm text-gray-500 mt-2">remaining</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Mission Section -->
+    <section id="mission" class="py-20 bg-gradient-to-b from-white to-gray-50 section-transition">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center opacity-0 animate-in animate-delay-2">
+                <h2 class="text-3xl md:text-5xl font-bold mb-8 text-mcaDarkBlue">Our Mission</h2>
+                <p class="text-xl text-gray-600 mb-12 leading-relaxed">
+                    The Manchuro Climate Accord aims to unite micronations and micronational organizations worldwide in the fight against climate change through education, advocacy, and collaborative action.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="bg-white p-8 rounded-2xl shadow-lg opacity-0 animate-in animate-delay-2 group hover:shadow-xl transition-all duration-300 border-t-4 border-mcaGreen card-hover">
+                    <div class="w-16 h-16 bg-mcaGreen/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-mcaGreen/20 transition-all duration-300 icon-container">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-mcaGreen" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-800">Global Unity</h3>
+                    <p class="text-gray-600">
+                        Bringing together micronations and organizations from across the globe to form a united front against climate change.
+                    </p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-lg opacity-0 animate-in animate-delay-3 group hover:shadow-xl transition-all duration-300 border-t-4 border-mcaBlue card-hover">
+                    <div class="w-16 h-16 bg-mcaBlue/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-mcaBlue/20 transition-all duration-300 icon-container">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-mcaBlue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-800">Education</h3>
+                    <p class="text-gray-600">
+                        Educating citizens and leaders about climate science, sustainable practices, and effective climate policies.
+                    </p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-lg opacity-0 animate-in animate-delay-4 group hover:shadow-xl transition-all duration-300 border-t-4 border-mcaDarkBlue card-hover">
+                    <div class="w-16 h-16 bg-mcaDarkBlue/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-mcaDarkBlue/20 transition-all duration-300 icon-container">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-mcaDarkBlue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-800">Grassroots Action</h3>
+                    <p class="text-gray-600">
+                        Empowering local communities to implement climate solutions that can scale to regional, national, and international levels.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Urgency Section -->
+    <section id="urgency" class="py-20 bg-gray-50 relative overflow-hidden section-transition">
+        <div class="absolute inset-0 z-0">
+            <div class="blob absolute bottom-0 -right-40 w-96 h-96 bg-mcaGreen/5 parallax" data-speed="0.02"></div>
+            <div class="blob absolute -top-20 -left-20 w-80 h-80 bg-mcaBlue/5 parallax" data-speed="0.04"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white p-10 rounded-3xl shadow-xl opacity-0 animate-in">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-8 text-mcaDarkBlue text-center">Time is Running Out</h2>
+                    
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-10 mb-10">
+                        <div class="text-center p-6 bg-gray-50 rounded-xl">
+                            <div class="text-5xl font-bold text-mcaDarkBlue mb-2 stat-counter" id="countdown-years">4</div>
+                            <div class="text-xl text-gray-600">Years</div>
+                        </div>
+                        <div class="text-center p-6 bg-gray-50 rounded-xl">
+                            <div class="text-5xl font-bold text-mcaDarkBlue mb-2 stat-counter" id="countdown-days">91</div>
+                            <div class="text-xl text-gray-600">Days</div>
+                        </div>
+                        <div class="text-center p-6 bg-gray-50 rounded-xl">
+                            <div class="text-3xl font-bold text-mcaDarkBlue mb-2" id="target-date">2028-04-22</div>
+                            <div class="text-lg text-gray-600">Target Date</div>
+                        </div>
+                    </div>
+                    
+                    <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+                        The climate crisis demands immediate action. While we've made progress, with renewable energy now powering 15% of global energy demand, it's not enough to prevent catastrophic climate change.
+                    </p>
+                    
+                    <div class="p-6 bg-red-50 border-l-4 border-red-500 rounded-r-lg">
+                        <h3 class="font-bold text-red-700 mb-2">The Stakes Are High</h3>
+                        <p class="text-red-600">
+                            Every day of inaction brings us closer to irreversible tipping points in our climate system. We must act now to secure a livable planet for future generations.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Progress Section -->
+    <section id="progress" class="py-20 bg-white section-transition">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center mb-16 opacity-0 animate-in">
+                <h2 class="text-3xl md:text-5xl font-bold mb-8 text-mcaDarkBlue">Our Progress</h2>
+                <p class="text-xl text-gray-600">
+                    While the challenge is enormous, we're making strides in the right direction. Countries around the world are beginning to transition to renewable energy.
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-gradient-to-r from-mcaBlue/5 to-mcaGreen/5 p-8 rounded-3xl">
+                    <div class="flex flex-col md:flex-row justify-between gap-8">
+                        <div class="flex-1 opacity-0 animate-in animate-delay-1">
+                            <div class="text-4xl font-bold text-mcaBlue mb-2">15%</div>
+                            <div class="text-lg text-gray-700 mb-4">of global energy demand now comes from renewable sources</div>
+                            <div class="w-full bg-gray-200 rounded-full h-4">
+                                <div class="progress-bar bg-gradient-to-r from-mcaBlue to-mcaGreen h-4 rounded-full flex items-center justify-end pr-2" style="width: 15%" data-target="15">
+                                    <span class="counter text-xs text-white font-bold">15%</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex-1 opacity-0 animate-in animate-delay-2">
+                            <div class="text-4xl font-bold text-mcaGreen mb-2">China</div>
+                            <div class="text-lg text-gray-700 mb-4">has made significant progress in renewable energy adoption since 2020</div>
+                            <div class="flex items-center mb-2">
+                                <div class="w-4 h-4 rounded-full bg-mcaGreen mr-2"></div>
+                                <span class="text-gray-600">Solar capacity expansion</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 rounded-full bg-mcaBlue mr-2"></div>
+                                <span class="text-gray-600">Wind power investment</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-6 mt-12">
+                    <div class="p-6 bg-white shadow-lg rounded-xl border border-gray-100 opacity-0 animate-in animate-delay-2 card-hover">
+                        <div class="text-2xl font-bold text-mcaBlue mb-2">Growing Awareness</div>
+                        <p class="text-gray-600">
+                            Public understanding of climate change has increased dramatically worldwide.
+                        </p>
+                    </div>
+                    
+                    <div class="p-6 bg-white shadow-lg rounded-xl border border-gray-100 opacity-0 animate-in animate-delay-3 card-hover">
+                        <div class="text-2xl font-bold text-mcaGreen mb-2">Policy Changes</div>
+                        <p class="text-gray-600">
+                            More governments are implementing carbon pricing and renewable energy subsidies.
+                        </p>
+                    </div>
+                    
+                    <div class="p-6 bg-white shadow-lg rounded-xl border border-gray-100 opacity-0 animate-in animate-delay-4 card-hover">
+                        <div class="text-2xl font-bold text-mcaDarkBlue mb-2">Innovation</div>
+                        <p class="text-gray-600">
+                            Clean energy technology costs have fallen dramatically in the past decade.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Call to Action Section -->
+    <section id="join" class="py-24 bg-gradient-to-br from-mcaDarkBlue via-mcaBlue to-mcaGreen text-white section-transition">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center opacity-0 animate-in">
+                <h2 class="text-3xl md:text-5xl font-bold mb-8">Join the Manchuro Climate Accord</h2>
+                <p class="text-xl mb-12 text-blue-50">
+                    Together, we can change the world. From micronations to local communities, to regional, national, and international levels—we all have a part to play in securing our planet's future.
+                </p>
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-3xl">
+                    <h3 class="text-2xl font-bold mb-6">Join Our Discord Community</h3>
+                    <div class="flex flex-col items-center justify-center space-y-6">
+                        <div class="flex items-center justify-center bg-[#5865F2]/20 w-full py-6 px-4 rounded-xl">
+                            <span class="text-xl font-semibold">Connect with fellow climate advocates</span>
+                        </div>
+                        <a href="https://discord.gg/Z4kBHX75YQ" target="_blank" class="px-8 py-4 bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold rounded-lg transition-colors duration-300 flex items-center justify-center w-full md:w-auto">
+                            <svg class="w-6 h-6 mr-2" viewBox="0 0 71 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M60.1045 4.8978C55.5792 2.8214 50.7265 1.2916 45.6527 0.41542C45.5603 0.39851 45.468 0.440769 45.4204 0.525289C44.7963 1.6353 44.105 3.0834 43.6209 4.2216C38.1637 3.4046 32.7345 3.4046 27.3892 4.2216C26.905 3.0581 26.1886 1.6353 25.5617 0.525289C25.5141 0.443589 25.4218 0.40133 25.3294 0.41542C20.2584 1.2888 15.4057 2.8186 10.8776 4.8978C10.8384 4.9147 10.8048 4.9429 10.7825 4.9795C1.57795 18.7309 -0.943561 32.1443 0.293408 45.3914C0.299005 45.4562 0.335386 45.5182 0.385761 45.5576C6.45866 50.0174 12.3413 52.7249 18.1147 54.5195C18.2071 54.5477 18.305 54.5139 18.3638 54.4378C19.7295 52.5728 20.9469 50.6063 21.9907 48.5383C22.0523 48.4172 21.9935 48.2735 21.8676 48.2256C19.9366 47.4931 18.0979 46.6 16.3292 45.5858C16.1893 45.5041 16.1781 45.304 16.3068 45.2082C16.679 44.9293 17.0513 44.6391 17.4067 44.3461C17.471 44.2926 17.5606 44.2813 17.6362 44.3151C29.2558 49.6202 41.8354 49.6202 53.3179 44.3151C53.3935 44.2785 53.4831 44.2898 53.5502 44.3433C53.9057 44.6363 54.2779 44.9293 54.6529 45.2082C54.7816 45.304 54.7732 45.5041 54.6333 45.5858C52.8646 46.6197 51.0259 47.4931 49.0921 48.2228C48.9662 48.2707 48.9102 48.4172 48.9718 48.5383C50.038 50.6034 51.2554 52.5699 52.5959 54.435C52.6519 54.5139 52.7526 54.5477 52.845 54.5195C58.6464 52.7249 64.529 50.0174 70.6019 45.5576C70.6551 45.5182 70.6887 45.459 70.6943 45.3942C72.1747 30.0791 68.2147 16.7757 60.1968 4.9823C60.1772 4.9429 60.1437 4.9147 60.1045 4.8978ZM23.7259 37.3253C20.2276 37.3253 17.3451 34.1136 17.3451 30.1693C17.3451 26.225 20.1717 23.0133 23.7259 23.0133C27.308 23.0133 30.1626 26.2532 30.1066 30.1693C30.1066 34.1136 27.28 37.3253 23.7259 37.3253ZM47.3178 37.3253C43.8196 37.3253 40.9371 34.1136 40.9371 30.1693C40.9371 26.225 43.7636 23.0133 47.3178 23.0133C50.9 23.0133 53.7545 26.2532 53.6986 30.1693C53.6986 34.1136 50.9 37.3253 47.3178 37.3253Z" fill="currentColor"/>
+                            </svg>
+                            Join our Discord
+                        </a>
+                        <p class="text-blue-100 text-sm">Discord invite: https://discord.gg/Z4kBHX75YQ</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="py-12 bg-gray-900 text-gray-400">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="text-2xl font-bold text-white flex items-center">
+                        <img src="logo.png" alt="Manchuro Climate Accord Logo" class="w-8 h-8 mr-2 rounded-full">
+                        Manchuro Climate Accord
+                    </div>
+                    <p class="mt-2 text-sm">Our only home. Our shared responsibility.</p>
+                </div>
+                
+                <div class="flex space-x-8 text-sm">
+                    <a href="#mission" class="hover:text-white transition-colors">Mission</a>
+                    <a href="#urgency" class="hover:text-white transition-colors">Urgency</a>
+                    <a href="#progress" class="hover:text-white transition-colors">Progress</a>
+                    <a href="#join" class="hover:text-white transition-colors">Join Us</a>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-8 border-t border-gray-800 text-center text-sm">
+                <p>&copy; <span class="copyright-year">2023</span> Manchuro Climate Accord. All rights reserved.</p>
+                <p class="mt-4 text-gray-500">Developed by <a href="https://juliaklee.wtf" target="_blank" class="text-mcaBlue hover:text-mcaGreen transition-colors">Júlia Klee</a></p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html> 
