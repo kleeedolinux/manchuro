@@ -1,35 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manchuro Climate Accord</title>
+    <title>Manchuro Climate Accord | Uniting Micronations Against Climate Change</title>
     
     <!-- Favicon -->
     <link rel="icon" href="logo.png" type="image/png">
     <link rel="apple-touch-icon" href="logo.png">
     
     <!-- Meta Tags -->
-    <meta name="description" content="The Manchuro Climate Accord unites micronations worldwide to combat climate change through education, advocacy, and collaborative action.">
-    <meta name="keywords" content="climate change, micronations, climate accord, climate action, sustainability">
+    <meta name="description" content="The Manchuro Climate Accord unites micronations worldwide to combat climate change through education, advocacy, and collaborative action. Join our movement today.">
+    <meta name="keywords" content="climate change, micronations, climate accord, climate action, sustainability, Manchuro, environmental action, global warming, climate crisis">
     <meta name="author" content="Júlia Klee">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://manchuro.pages.dev/">
     
     <!-- Open Graph / Social Media Meta Tags -->
-    <meta property="og:title" content="Manchuro Climate Accord">
+    <meta property="og:title" content="Manchuro Climate Accord | Uniting Micronations Against Climate Change">
     <meta property="og:description" content="Uniting micronations against climate change. Join our movement to create a sustainable future.">
-    <meta property="og:image" content="logo.png">
-    <meta property="og:url" content="https://manchuro.pages.dev">
+    <meta property="og:image" content="https://manchuro.pages.dev/logo.png">
+    <meta property="og:url" content="https://manchuro.pages.dev/">
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Manchuro Climate Accord">
     
     <!-- Twitter Card data -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Manchuro Climate Accord">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Manchuro Climate Accord | Uniting Micronations Against Climate Change">
     <meta name="twitter:description" content="Uniting micronations against climate change. Join our movement to create a sustainable future.">
-    <meta name="twitter:image" content="logo.png">
+    <meta name="twitter:image" content="https://manchuro.pages.dev/logo.png">
     
     <!-- Stylesheets and Scripts -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
     <link rel="stylesheet" href="styles.css">
     <script>
         tailwind.config = {
@@ -50,10 +65,39 @@
                             '0%, 100%': { transform: 'translateY(0)' },
                             '50%': { transform: 'translateY(-10px)' },
                         }
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                        'montserrat': ['Montserrat', 'sans-serif'],
                     }
                 }
             }
         }
+    </script>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Manchuro Climate Accord",
+      "url": "https://manchuro.pages.dev/",
+      "logo": "https://manchuro.pages.dev/logo.png",
+      "description": "The Manchuro Climate Accord unites micronations worldwide to combat climate change through education, advocacy, and collaborative action.",
+      "foundingDate": "2025-04-21",
+      "sameAs": [
+        "https://discord.gg/Z4kBHX75YQ"
+      ],
+      "founder": {
+        "@type": "Person",
+        "name": "Júlia Klee"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Join Information",
+        "url": "https://manchuro.pages.dev/#join"
+      }
+    }
     </script>
     <style>
         @keyframes fadeInUp {
@@ -190,173 +234,341 @@
         }
     </style>
 </head>
-<body class="bg-white text-gray-800 font-sans animated-bg">
+<body x-data="{ mobileMenu: false }" 
+      class="bg-gray-900 text-gray-200 font-poppins transition-colors duration-300 overflow-x-hidden">
+    
+    <!-- Mobile Menu Toggle -->
+    <button 
+        @click="mobileMenu = !mobileMenu"
+        class="md:hidden fixed top-4 left-4 z-50 bg-gray-800 p-2 rounded-full shadow-lg transition-all duration-300 hover:scale-110 text-mcaBlue"
+        aria-label="Toggle mobile menu">
+        <i class="fa-solid" :class="mobileMenu ? 'fa-times' : 'fa-bars'"></i>
+    </button>
+
+    <!-- Mobile Menu Panel -->
+    <div 
+        x-show="mobileMenu" 
+        x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0 transform -translate-x-full"
+        x-transition:enter-end="opacity-100 transform translate-x-0"
+        x-transition:leave="transition ease-in duration-300"
+        x-transition:leave-start="opacity-100 transform translate-x-0"
+        x-transition:leave-end="opacity-0 transform -translate-x-full"
+        class="fixed inset-y-0 left-0 z-40 w-64 bg-white dark:bg-gray-800 shadow-xl p-6">
+        <div class="flex flex-col space-y-6 h-full">
+            <div class="flex items-center justify-center mb-8 border-b pb-4 dark:border-gray-700">
+                <img src="logo.png" alt="Manchuro Climate Accord Logo" class="w-10 h-10 mr-2 rounded-full">
+                <span class="text-xl font-bold text-mcaDarkBlue dark:text-mcaBlue">MCA</span>
+            </div>
+            <a href="#mission" @click="mobileMenu = false" class="text-gray-700 dark:text-gray-300 hover:text-mcaBlue dark:hover:text-mcaGreen transition-colors px-4 py-2 rounded-md">
+                <i class="fa-solid fa-bullseye mr-2"></i> Mission
+            </a>
+            <a href="#about" @click="mobileMenu = false" class="text-gray-700 dark:text-gray-300 hover:text-mcaBlue dark:hover:text-mcaGreen transition-colors px-4 py-2 rounded-md">
+                <i class="fa-solid fa-info-circle mr-2"></i> About
+            </a>
+            <a href="#etymology" @click="mobileMenu = false" class="text-gray-700 dark:text-gray-300 hover:text-mcaBlue dark:hover:text-mcaGreen transition-colors px-4 py-2 rounded-md">
+                <i class="fa-solid fa-book mr-2"></i> Etymology
+            </a>
+            <a href="#urgency" @click="mobileMenu = false" class="text-gray-700 dark:text-gray-300 hover:text-mcaBlue dark:hover:text-mcaGreen transition-colors px-4 py-2 rounded-md">
+                <i class="fa-solid fa-clock mr-2"></i> Urgency
+            </a>
+            <a href="#progress" @click="mobileMenu = false" class="text-gray-700 dark:text-gray-300 hover:text-mcaBlue dark:hover:text-mcaGreen transition-colors px-4 py-2 rounded-md">
+                <i class="fa-solid fa-chart-line mr-2"></i> Progress
+            </a>
+            <a href="#join" @click="mobileMenu = false" class="text-gray-700 dark:text-gray-300 hover:text-mcaBlue dark:hover:text-mcaGreen transition-colors px-4 py-2 rounded-md bg-mcaBlue/10 font-semibold">
+                <i class="fa-solid fa-handshake mr-2"></i> Join Us
+            </a>
+            <div class="mt-auto">
+                <a href="https://discord.gg/Z4kBHX75YQ" target="_blank" class="flex items-center justify-center bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-700 transition-colors">
+                    <i class="fab fa-discord mr-2"></i> Join Discord
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Particles Background -->
+    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden opacity-50 dark:opacity-20">
+        <div class="particles-container absolute inset-0"></div>
+    </div>
+
     <!-- Charter Banner -->
-    <div id="charter-banner" class="charter-banner">
-        📜 Access our official charter document: 
-        <a href="https://docs.google.com/document/d/1dRHhzeiULLeLBVB1JcZQaQ6pCtPok6fxkIZXWpbTYBY/edit?usp=sharing" target="_blank">
-            Charter of the Manchuro Climate Accord
-        </a>
-        <button id="close-banner" class="ml-4 focus:outline-none">×</button>
+    <div id="charter-banner" class="charter-banner" x-data="{ show: true }" x-show="show">
+        <div class="flex items-center justify-center">
+            <i class="fa-solid fa-scroll text-white mr-2"></i>
+            <span>Access our official charter document:</span>
+            <a href="https://docs.google.com/document/d/1dRHhzeiULLeLBVB1JcZQaQ6pCtPok6fxkIZXWpbTYBY/edit?usp=sharing" target="_blank" class="ml-2 underline hover:text-mcaGreen transition-colors">
+                Charter of the Manchuro Climate Accord
+            </a>
+            <button @click="show = false" class="ml-4 focus:outline-none hover:text-mcaGreen transition-colors">
+                <i class="fa-solid fa-times"></i>
+            </button>
+        </div>
     </div>
 
     <!-- Charter Floating Button -->
-    <div class="charter-button">
+    <div class="charter-button animate-pulse-slow">
         <a href="https://docs.google.com/document/d/1dRHhzeiULLeLBVB1JcZQaQ6pCtPok6fxkIZXWpbTYBY/edit?usp=sharing" target="_blank" class="charter-button-inner">
-            <svg class="charter-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-            </svg>
+            <i class="fa-solid fa-scroll charter-icon"></i>
             <span>Read Our Charter</span>
         </a>
     </div>
 
     <!-- Hero Section -->
-    <header class="relative overflow-hidden wave-bottom">
-        <!-- Background Elements -->
-        <div class="absolute inset-0 z-0">
-            <div class="blob absolute -top-20 -right-20 w-96 h-96 bg-mcaGreen/10 opacity-70 parallax" data-speed="0.03"></div>
-            <div class="blob absolute top-40 -left-40 w-80 h-80 bg-mcaBlue/10 opacity-60 animate-delay-2 parallax" data-speed="0.05"></div>
+    <header class="relative overflow-hidden min-h-screen flex items-center pt-24 pb-20 dark:bg-gray-900 dark:text-white">
+        <!-- Background Gradient Elements -->
+        <div class="absolute inset-0 z-0 opacity-20">
+            <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-mcaBlue/30 via-transparent to-mcaGreen/30"></div>
+            <div class="absolute bottom-0 w-full h-2/3 bg-gradient-to-t from-mcaDarkBlue/20 to-transparent"></div>
+            <div class="blob absolute -top-20 -right-20 w-96 h-96 bg-mcaGreen/20 dark:bg-mcaGreen/10"></div>
+            <div class="blob absolute top-1/3 -left-40 w-80 h-80 bg-mcaBlue/20 dark:bg-mcaBlue/10"></div>
         </div>
         
-        <div class="container mx-auto px-4 py-16 relative z-10">
-            <nav class="flex justify-between items-center mb-16">
-                <div class="text-2xl font-bold text-mcaDarkBlue flex items-center">
-                    <img src="logo.png" alt="Manchuro Climate Accord Logo" class="w-10 h-10 mr-2 rounded-full">
-                    Manchuro Climate Accord
+        <div class="container mx-auto px-4 relative z-10">
+            <nav class="flex justify-between items-center mb-16 pb-4 border-b border-gray-200 dark:border-gray-800" aria-label="Main Navigation">
+                <div class="text-2xl font-bold text-mcaDarkBlue dark:text-white flex items-center">
+                    <img src="logo.png" alt="Manchuro Climate Accord Logo" class="w-10 h-10 mr-3 rounded-full shadow-lg">
+                    <h1 class="text-gradient bg-gradient-to-r from-mcaBlue to-mcaGreen bg-clip-text text-transparent">Manchuro Climate Accord</h1>
                 </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#mission" class="text-gray-700 hover:text-mcaBlue transition-colors">Mission</a>
-                    <a href="#about" class="text-gray-700 hover:text-mcaBlue transition-colors">About</a>
-                    <a href="#etymology" class="text-gray-700 hover:text-mcaBlue transition-colors">Etymology</a>
-                    <a href="#urgency" class="text-gray-700 hover:text-mcaBlue transition-colors">Urgency</a>
-                    <a href="#progress" class="text-gray-700 hover:text-mcaBlue transition-colors">Progress</a>
-                    <a href="#join" class="text-gray-700 hover:text-mcaBlue transition-colors">Join Us</a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#mission" class="nav-link group">
+                        <i class="fa-solid fa-bullseye mr-1 text-mcaBlue group-hover:text-mcaGreen transition-colors"></i>
+                        <span>Mission</span>
+                    </a>
+                    <a href="#about" class="nav-link group">
+                        <i class="fa-solid fa-info-circle mr-1 text-mcaBlue group-hover:text-mcaGreen transition-colors"></i>
+                        <span>About</span>
+                    </a>
+                    <a href="#etymology" class="nav-link group">
+                        <i class="fa-solid fa-book mr-1 text-mcaBlue group-hover:text-mcaGreen transition-colors"></i>
+                        <span>Etymology</span>
+                    </a>
+                    <a href="#urgency" class="nav-link group">
+                        <i class="fa-solid fa-clock mr-1 text-mcaBlue group-hover:text-mcaGreen transition-colors"></i>
+                        <span>Urgency</span>
+                    </a>
+                    <a href="#progress" class="nav-link group">
+                        <i class="fa-solid fa-chart-line mr-1 text-mcaBlue group-hover:text-mcaGreen transition-colors"></i>
+                        <span>Progress</span>
+                    </a>
+                    <a href="#join" class="nav-link group">
+                        <i class="fa-solid fa-handshake mr-1 text-mcaBlue group-hover:text-mcaGreen transition-colors"></i>
+                        <span>Join Us</span>
+                    </a>
                 </div>
             </nav>
             
-            <div class="flex flex-col-reverse md:flex-row items-center">
-                <div class="md:w-1/2 mt-8 md:mt-0 opacity-0 animate-in">
-                    <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6 gradient-text">
-                        Uniting Micronations Against Climate Change
-                    </h1>
-                    <p class="text-xl text-gray-600 mb-8">
+            <div class="flex flex-col-reverse md:flex-row items-center gap-8 md:gap-16">
+                <div class="md:w-1/2" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+                    <h2 class="text-4xl md:text-6xl font-bold leading-tight mb-6 font-montserrat">
+                        <span class="text-gradient bg-gradient-to-r from-mcaBlue to-mcaGreen bg-clip-text text-transparent">Uniting Micronations Against Climate Change</span>
+                    </h2>
+                    <p class="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
                         Together, we can create a sustainable future for our planet—the only home we have.
+                        <span class="block mt-2 text-mcaDarkBlue dark:text-mcaBlue font-semibold">Join our global movement today.</span>
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#join" class="px-8 py-4 bg-gradient-to-r from-mcaBlue to-mcaGreen text-white font-bold rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 btn-hover-effect">
-                            Join the Movement
+                        <a href="#join" class="px-8 py-4 bg-gradient-to-r from-mcaBlue to-mcaGreen text-white font-bold rounded-full shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 btn-hover-effect flex items-center justify-center group">
+                            <i class="fa-solid fa-handshake mr-2 group-hover:rotate-12 transition-transform"></i>
+                            <span>Join the Movement</span>
+                            <i class="fa-solid fa-arrow-right ml-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all"></i>
                         </a>
-                        <a href="#mission" class="px-8 py-4 border-2 border-mcaBlue text-mcaBlue font-bold rounded-full hover:bg-mcaBlue hover:text-white transition-all duration-300">
-                            Learn More
+                        <a href="#mission" class="px-8 py-4 border-2 border-mcaBlue dark:border-mcaGreen text-mcaBlue dark:text-mcaGreen font-bold rounded-full hover:bg-mcaBlue hover:text-white dark:hover:bg-mcaGreen dark:hover:text-gray-900 transition-all duration-300 flex items-center justify-center group">
+                            <i class="fa-solid fa-lightbulb mr-2 group-hover:text-yellow-300 transition-colors"></i>
+                            <span>Learn More</span>
                         </a>
                     </div>
                 </div>
                 
-                <div class="md:w-1/2 flex justify-center opacity-0 animate-in animate-delay-1">
+                <div class="md:w-1/2 flex justify-center" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
                     <div class="relative animate-float">
                         <div class="clock-container pulse-element">
-                            <svg width="300" height="300" viewBox="0 0 100 100">
-                                <circle cx="50" cy="50" r="45" fill="none" stroke="#E5E7EB" stroke-width="5" />
-                                <circle class="clock-ring" cx="50" cy="50" r="45" fill="none" stroke="url(#gradient)" stroke-width="5" />
+                            <svg width="300" height="300" viewBox="0 0 100 100" class="transform transition-transform hover:scale-105 cursor-pointer">
                                 <defs>
                                     <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
                                         <stop offset="0%" stop-color="#3B82F6" />
                                         <stop offset="100%" stop-color="#34D399" />
                                     </linearGradient>
+                                    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                                        <feGaussianBlur stdDeviation="3" result="blur"/>
+                                        <feFlood flood-color="#3B82F6" flood-opacity="0.3" result="coloredBlur"/>
+                                        <feComposite in="coloredBlur" in2="blur" operator="in" result="coloredBlur"/>
+                                        <feComposite in="SourceGraphic" in2="coloredBlur" operator="over"/>
+                                    </filter>
                                 </defs>
+                                <circle cx="50" cy="50" r="45" fill="none" stroke="#E5E7EB" stroke-width="2" class="dark:opacity-30" />
+                                <circle class="clock-ring" cx="50" cy="50" r="45" fill="none" stroke="url(#gradient)" stroke-width="5" filter="url(#glow)" />
                             </svg>
                             <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
-                                <div class="text-4xl font-bold text-mcaDarkBlue" id="years">4</div>
-                                <div class="text-xl font-bold text-gray-600" id="days">91</div>
-                                <div class="text-sm text-gray-500 mt-2">remaining</div>
+                                <div class="text-5xl font-bold text-mcaDarkBlue dark:text-mcaBlue" id="years" x-data="{ value: 4 }" x-text="value">4</div>
+                                <div class="text-2xl font-bold text-gray-600 dark:text-gray-300" id="days" x-data="{ value: 91 }" x-text="value">91</div>
+                                <div class="text-sm text-gray-500 dark:text-gray-400 mt-2 flex items-center">
+                                    <i class="fa-solid fa-hourglass-half mr-1 animate-pulse text-mcaBlue"></i>
+                                    <span>remaining</span>
+                                </div>
                             </div>
+                        </div>
+                        <div class="absolute -bottom-8 -right-8 bg-mcaGreen/80 dark:bg-mcaGreen/90 text-white p-3 rounded-full shadow-lg animate-pulse">
+                            <i class="fa-solid fa-leaf text-xl"></i>
                         </div>
                     </div>
                 </div>
+            </div>
+            
+            <!-- Animated Scroll Down Indicator -->
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 text-center">
+                <a href="#mission" class="flex flex-col items-center text-mcaBlue dark:text-mcaGreen hover:text-mcaGreen dark:hover:text-white transition-colors">
+                    <span class="text-sm font-medium mb-2">Scroll Down</span>
+                    <i class="fa-solid fa-chevron-down animate-bounce text-xl"></i>
+                </a>
             </div>
         </div>
     </header>
     
     <!-- Mission Section -->
-    <section id="mission" class="py-20 bg-gradient-to-b from-white to-gray-50 section-transition">
-        <div class="container mx-auto px-4">
-            <div class="max-w-3xl mx-auto text-center opacity-0 animate-in animate-delay-2">
-                <h2 class="text-3xl md:text-5xl font-bold mb-8 text-mcaDarkBlue">Our Mission</h2>
-                <p class="text-xl text-gray-600 mb-12 leading-relaxed">
+    <section id="mission" class="py-24 bg-gradient-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 section-transition relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 z-0 pointer-events-none">
+            <div class="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-mcaGreen/10 to-transparent rounded-tl-full"></div>
+            <div class="absolute top-0 left-0 w-1/3 h-1/3 bg-gradient-to-br from-mcaBlue/10 to-transparent rounded-br-full"></div>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-3xl mx-auto text-center mb-16" data-aos="fade-up">
+                <span class="inline-block py-1 px-3 rounded-full bg-mcaGreen/10 text-mcaGreen dark:bg-mcaGreen/20 text-sm font-semibold mb-4">
+                    <i class="fa-solid fa-bullseye mr-1"></i> Our Purpose
+                </span>
+                <h2 class="text-3xl md:text-5xl font-bold mb-8 text-mcaDarkBlue dark:text-white font-montserrat leading-tight">
+                    Our <span class="text-gradient bg-gradient-to-r from-mcaBlue to-mcaGreen bg-clip-text text-transparent">Mission</span>
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 mb-12 leading-relaxed">
                     The Manchuro Climate Accord aims to unite micronations and micronational organizations worldwide in the fight against climate change through education, advocacy, and collaborative action.
                 </p>
             </div>
             
-            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <div class="bg-white p-8 rounded-2xl shadow-lg opacity-0 animate-in animate-delay-2 group hover:shadow-xl transition-all duration-300 border-t-4 border-mcaGreen card-hover">
-                    <div class="w-16 h-16 bg-mcaGreen/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-mcaGreen/20 transition-all duration-300 icon-container">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-mcaGreen" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-                        </svg>
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto" x-data="{ activeCard: null }">
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg group hover:shadow-xl transition-all duration-300 border-t-4 border-mcaGreen card-hover transform hover:-translate-y-2" 
+                     data-aos="fade-up" 
+                     data-aos-delay="100"
+                     @mouseenter="activeCard = 0" 
+                     @mouseleave="activeCard = null">
+                    <div class="w-16 h-16 bg-mcaGreen/10 dark:bg-mcaGreen/20 rounded-full flex items-center justify-center mb-6 group-hover:bg-mcaGreen/20 transition-all duration-300 icon-container"
+                         :class="{'transform scale-110': activeCard === 0}">
+                        <i class="fa-solid fa-globe text-2xl text-mcaGreen" :class="{'animate-pulse': activeCard === 0}"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4 text-gray-800">Global Unity</h3>
-                    <p class="text-gray-600">
+                    <h3 class="text-xl font-bold mb-4 text-gray-800 dark:text-white flex items-center">
+                        Global Unity
+                        <i class="fa-solid fa-arrow-right ml-2 opacity-0 group-hover:opacity-100 text-mcaGreen transition-all duration-300"></i>
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300">
                         Bringing together micronations and organizations from across the globe to form a united front against climate change.
                     </p>
+                    <div class="h-1 w-0 bg-gradient-to-r from-mcaBlue to-mcaGreen mt-4 group-hover:w-full transition-all duration-500 rounded-full"></div>
                 </div>
                 
-                <div class="bg-white p-8 rounded-2xl shadow-lg opacity-0 animate-in animate-delay-3 group hover:shadow-xl transition-all duration-300 border-t-4 border-mcaBlue card-hover">
-                    <div class="w-16 h-16 bg-mcaBlue/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-mcaBlue/20 transition-all duration-300 icon-container">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-mcaBlue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                        </svg>
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg group hover:shadow-xl transition-all duration-300 border-t-4 border-mcaBlue card-hover transform hover:-translate-y-2" 
+                     data-aos="fade-up" 
+                     data-aos-delay="200"
+                     @mouseenter="activeCard = 1" 
+                     @mouseleave="activeCard = null">
+                    <div class="w-16 h-16 bg-mcaBlue/10 dark:bg-mcaBlue/20 rounded-full flex items-center justify-center mb-6 group-hover:bg-mcaBlue/20 transition-all duration-300 icon-container"
+                         :class="{'transform scale-110': activeCard === 1}">
+                        <i class="fa-solid fa-book-open text-2xl text-mcaBlue" :class="{'animate-pulse': activeCard === 1}"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4 text-gray-800">Education</h3>
-                    <p class="text-gray-600">
+                    <h3 class="text-xl font-bold mb-4 text-gray-800 dark:text-white flex items-center">
+                        Education
+                        <i class="fa-solid fa-arrow-right ml-2 opacity-0 group-hover:opacity-100 text-mcaBlue transition-all duration-300"></i>
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300">
                         Educating citizens and leaders about climate science, sustainable practices, and effective climate policies.
                     </p>
+                    <div class="h-1 w-0 bg-gradient-to-r from-mcaBlue to-mcaGreen mt-4 group-hover:w-full transition-all duration-500 rounded-full"></div>
                 </div>
                 
-                <div class="bg-white p-8 rounded-2xl shadow-lg opacity-0 animate-in animate-delay-4 group hover:shadow-xl transition-all duration-300 border-t-4 border-mcaDarkBlue card-hover">
-                    <div class="w-16 h-16 bg-mcaDarkBlue/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-mcaDarkBlue/20 transition-all duration-300 icon-container">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-mcaDarkBlue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg group hover:shadow-xl transition-all duration-300 border-t-4 border-mcaDarkBlue card-hover transform hover:-translate-y-2" 
+                     data-aos="fade-up" 
+                     data-aos-delay="300"
+                     @mouseenter="activeCard = 2" 
+                     @mouseleave="activeCard = null">
+                    <div class="w-16 h-16 bg-mcaDarkBlue/10 dark:bg-mcaDarkBlue/20 rounded-full flex items-center justify-center mb-6 group-hover:bg-mcaDarkBlue/20 transition-all duration-300 icon-container"
+                         :class="{'transform scale-110': activeCard === 2}">
+                        <i class="fa-solid fa-seedling text-2xl text-mcaDarkBlue dark:text-mcaGreen" :class="{'animate-pulse': activeCard === 2}"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4 text-gray-800">Grassroots Action</h3>
-                    <p class="text-gray-600">
+                    <h3 class="text-xl font-bold mb-4 text-gray-800 dark:text-white flex items-center">
+                        Grassroots Action
+                        <i class="fa-solid fa-arrow-right ml-2 opacity-0 group-hover:opacity-100 text-mcaDarkBlue dark:text-mcaGreen transition-all duration-300"></i>
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300">
                         Empowering local communities to implement climate solutions that can scale to regional, national, and international levels.
                     </p>
+                    <div class="h-1 w-0 bg-gradient-to-r from-mcaBlue to-mcaGreen mt-4 group-hover:w-full transition-all duration-500 rounded-full"></div>
                 </div>
             </div>
         </div>
     </section>
     
     <!-- About Section -->
-    <section id="about" class="py-20 bg-white section-transition">
-        <div class="container mx-auto px-4">
+    <section id="about" class="py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 section-transition relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 z-0 pointer-events-none">
+            <div class="absolute top-0 right-0 w-1/3 h-1/3 bg-mcaBlue/5 dark:bg-mcaBlue/10 rounded-bl-full"></div>
+            <div class="absolute bottom-0 left-0 w-1/3 h-1/3 bg-mcaGreen/5 dark:bg-mcaGreen/10 rounded-tr-full"></div>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
             <div class="max-w-4xl mx-auto">
-                <div class="bg-gradient-to-r from-mcaBlue/5 to-mcaGreen/5 p-10 rounded-3xl shadow-lg opacity-0 animate-in">
-                    <h2 class="text-3xl md:text-5xl font-bold mb-8 text-mcaDarkBlue text-center">About Us</h2>
-                    
-                    <p class="text-xl text-gray-600 mb-6 leading-relaxed">
-                        The Manchuro Climate Accord is the world's leading intermicronational organization focused on environmentalism. It was founded on April 21, 2025, and as of May 2025, it consists of 13 member states and 2 observer states.
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <span class="inline-block py-1 px-3 rounded-full bg-mcaBlue/10 text-mcaBlue dark:bg-mcaBlue/20 text-sm font-semibold mb-4">
+                        <i class="fa-solid fa-info-circle mr-1"></i> Who We Are
+                    </span>
+                    <h2 class="text-3xl md:text-5xl font-bold mb-6 text-mcaDarkBlue dark:text-white font-montserrat">
+                        About <span class="text-gradient bg-gradient-to-r from-mcaBlue to-mcaGreen bg-clip-text text-transparent">Us</span>
+                    </h2>
+                </div>
+
+                <div class="bg-gradient-to-r from-mcaBlue/5 to-mcaGreen/5 dark:from-mcaBlue/10 dark:to-mcaGreen/10 p-8 md:p-10 rounded-3xl shadow-lg" data-aos="fade-up" data-aos-delay="100">                    
+                    <p class="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+                        The Manchuro Climate Accord is the world's leading intermicronational organization focused on environmentalism. It was founded on April 21, 2025, and as of May 2025, it consists of 20 member states and 2 observer states.
                     </p>
                     
-                    <div class="grid md:grid-cols-2 gap-8 mt-10">
-                        <div class="bg-white p-6 rounded-xl shadow-md card-hover">
-                            <div class="text-2xl font-bold text-mcaBlue mb-3 flex items-center">
-                                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                                </svg>
-                                Founding Date
+                    <div class="grid md:grid-cols-2 gap-8 mt-10" x-data="{ activeCard: null }">
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl"
+                             @mouseenter="activeCard = 0" 
+                             @mouseleave="activeCard = null"
+                             data-aos="fade-right" data-aos-delay="200">
+                            <div class="text-2xl font-bold text-mcaBlue mb-3 flex items-center group">
+                                <i class="fa-solid fa-calendar-day mr-3 text-mcaBlue group-hover:text-mcaGreen transition-colors duration-300"></i>
+                                <span>Founding Date</span>
+                                <i class="fa-solid fa-arrow-right ml-2 opacity-0 group-hover:opacity-100 text-mcaBlue transition-all duration-300"></i>
                             </div>
-                            <p class="text-gray-600">April 21, 2025</p>
+                            <p class="text-gray-600 dark:text-gray-300">April 21, 2025</p>
+                            <div class="mt-3 h-1 w-0 bg-gradient-to-r from-mcaBlue to-mcaGreen rounded-full transition-all duration-500"
+                                 :class="{'w-full': activeCard === 0}"></div>
                         </div>
                         
-                        <div class="bg-white p-6 rounded-xl shadow-md card-hover">
-                            <div class="text-2xl font-bold text-mcaGreen mb-3 flex items-center">
-                                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                                </svg>
-                                Member States
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl"
+                             @mouseenter="activeCard = 1" 
+                             @mouseleave="activeCard = null"
+                             data-aos="fade-left" data-aos-delay="300">
+                            <div class="text-2xl font-bold text-mcaGreen mb-3 flex items-center group">
+                                <i class="fa-solid fa-users mr-3 text-mcaGreen group-hover:text-mcaBlue transition-colors duration-300"></i>
+                                <span>Member States</span>
+                                <i class="fa-solid fa-arrow-right ml-2 opacity-0 group-hover:opacity-100 text-mcaGreen transition-all duration-300"></i>
                             </div>
-                            <p class="text-gray-600">13 member states and 2 observer states</p>
+                            <p class="text-gray-600 dark:text-gray-300">20 member states and 2 observer states</p>
+                            <div class="mt-3 h-1 w-0 bg-gradient-to-r from-mcaBlue to-mcaGreen rounded-full transition-all duration-500"
+                                 :class="{'w-full': activeCard === 1}"></div>
+                        </div>
+                    </div>
+
+                    <div class="mt-12 p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="flex flex-col md:flex-row items-center gap-6">
+                            <div class="bg-mcaBlue/10 dark:bg-mcaBlue/20 p-4 rounded-full">
+                                <i class="fa-solid fa-lightbulb text-4xl text-mcaBlue"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Our Vision</h3>
+                                <p class="text-gray-600 dark:text-gray-300">To create a coalition of micronations united by shared environmental values, demonstrating that even small entities can contribute to global climate solutions.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -365,40 +577,87 @@
     </section>
     
     <!-- Etymology Section -->
-    <section id="etymology" class="py-20 bg-gradient-to-b from-white to-gray-50 section-transition">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto opacity-0 animate-in animate-delay-1">
-                <h2 class="text-3xl md:text-5xl font-bold mb-8 text-mcaDarkBlue text-center">Etymology</h2>
+    <section id="etymology" class="py-24 bg-white dark:bg-gray-900 section-transition relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+            <div class="blob absolute -top-20 -left-20 w-72 h-72 bg-mcaGreen/5 dark:bg-mcaGreen/10"></div>
+            <div class="blob absolute bottom-20 -right-20 w-96 h-96 bg-mcaBlue/5 dark:bg-mcaBlue/10"></div>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <span class="inline-block py-1 px-3 rounded-full bg-mcaDarkBlue/10 text-mcaDarkBlue dark:bg-mcaDarkBlue/20 dark:text-mcaBlue text-sm font-semibold mb-4">
+                        <i class="fa-solid fa-book mr-1"></i> Our Name
+                    </span>
+                    <h2 class="text-3xl md:text-5xl font-bold mb-6 text-mcaDarkBlue dark:text-white font-montserrat">
+                        <span class="text-gradient bg-gradient-to-r from-mcaBlue to-mcaGreen bg-clip-text text-transparent">Etymology</span>
+                    </h2>
+                </div>
                 
-                <div class="bg-white p-8 rounded-3xl shadow-lg mb-8">
-                    <div class="flex flex-col md:flex-row items-center mb-6">
-                        <div class="w-full md:w-1/3 mb-6 md:mb-0 flex justify-center">
-                            <div class="relative w-40 h-40 bg-gradient-to-br from-mcaBlue to-mcaGreen rounded-full flex items-center justify-center shadow-lg">
-                                <span class="text-5xl text-white font-bold">M</span>
-                                <div class="absolute -bottom-2 -right-2 w-16 h-16 bg-gradient-to-br from-mcaGreen to-mcaDarkBlue rounded-full flex items-center justify-center shadow-md">
-                                    <span class="text-2xl text-white font-bold">CA</span>
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-lg mb-12" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex flex-col md:flex-row items-center mb-8">
+                        <div class="w-full md:w-1/3 mb-6 md:mb-0 flex justify-center" data-aos="zoom-in" data-aos-delay="200">
+                            <div class="relative group">
+                                <div class="absolute inset-0 bg-gradient-to-br from-mcaBlue to-mcaGreen rounded-full opacity-20 blur-lg group-hover:opacity-40 transition-opacity duration-300"></div>
+                                <div class="relative w-40 h-40 bg-gradient-to-br from-mcaBlue to-mcaGreen rounded-full flex items-center justify-center shadow-lg transform transition-all duration-300 group-hover:scale-110">
+                                    <span class="text-5xl text-white font-bold">M</span>
+                                    <div class="absolute -bottom-2 -right-2 w-16 h-16 bg-gradient-to-br from-mcaGreen to-mcaDarkBlue rounded-full flex items-center justify-center shadow-md animate-pulse-slow">
+                                        <span class="text-2xl text-white font-bold">CA</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="w-full md:w-2/3 md:pl-8">
-                            <p class="text-xl text-gray-600 leading-relaxed">
-                                The organization's name is derived from its location in <span class="font-semibold text-mcaDarkBlue">Manchuro, Ablakistan</span>, a city within the New York Federation. The "Climate Accord" part of the name is inspired by the "Paris Climate Accord".
+                        <div class="w-full md:w-2/3 md:pl-8" data-aos="fade-left" data-aos-delay="300">
+                            <p class="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
+                                The organization's name is derived from its location in <span class="font-semibold text-mcaDarkBlue dark:text-mcaBlue">Manchuro, Ablakistan</span>, a city within the New York Federation. The "Climate Accord" part of the name is inspired by the "Paris Climate Accord".
                             </p>
                         </div>
                     </div>
                     
-                    <div class="flex flex-col md:flex-row bg-gray-50 rounded-xl p-6">
-                        <div class="w-full md:w-1/2 mb-4 md:mb-0 md:pr-4">
-                            <h3 class="text-xl font-bold text-mcaBlue mb-2">Manchuro</h3>
-                            <p class="text-gray-600">
-                                Named after the founding city in Ablakistan, where the accord was first signed by member micronations.
-                            </p>
+                    <div class="grid md:grid-cols-2 gap-8 mt-12" x-data="{ activeCard: null }">
+                        <div class="bg-gray-50 dark:bg-gray-700 rounded-xl p-6 transform transition duration-300 hover:-translate-y-1 hover:shadow-lg"
+                             @mouseenter="activeCard = 'manchuro'" 
+                             @mouseleave="activeCard = null"
+                             data-aos="fade-right" data-aos-delay="400">
+                            <div class="flex items-start space-x-4">
+                                <div class="mt-1">
+                                    <i class="fa-solid fa-map-marker-alt text-xl text-mcaBlue"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-mcaBlue mb-3 flex items-center">
+                                        Manchuro
+                                        <i class="fa-solid fa-arrow-right ml-2 opacity-0 group-hover:opacity-100 text-mcaBlue transition-all duration-300"></i>
+                                    </h3>
+                                    <p class="text-gray-600 dark:text-gray-300">
+                                        Named after the founding city in Ablakistan, where the accord was first signed by member micronations.
+                                    </p>
+                                    <div class="h-1 w-0 bg-mcaBlue mt-4 rounded-full transition-all duration-500"
+                                         :class="{'w-full': activeCard === 'manchuro'}"></div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="w-full md:w-1/2 md:pl-4 md:border-l border-gray-200">
-                            <h3 class="text-xl font-bold text-mcaGreen mb-2">Climate Accord</h3>
-                            <p class="text-gray-600">
-                                Inspired by international climate agreements, emphasizing our commitment to environmental collaboration.
-                            </p>
+                        
+                        <div class="bg-gray-50 dark:bg-gray-700 rounded-xl p-6 transform transition duration-300 hover:-translate-y-1 hover:shadow-lg"
+                             @mouseenter="activeCard = 'accord'" 
+                             @mouseleave="activeCard = null"
+                             data-aos="fade-left" data-aos-delay="500">
+                            <div class="flex items-start space-x-4">
+                                <div class="mt-1">
+                                    <i class="fa-solid fa-handshake text-xl text-mcaGreen"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-mcaGreen mb-3 flex items-center">
+                                        Climate Accord
+                                        <i class="fa-solid fa-arrow-right ml-2 opacity-0 group-hover:opacity-100 text-mcaGreen transition-all duration-300"></i>
+                                    </h3>
+                                    <p class="text-gray-600 dark:text-gray-300">
+                                        Inspired by international climate agreements, emphasizing our commitment to environmental collaboration.
+                                    </p>
+                                    <div class="h-1 w-0 bg-mcaGreen mt-4 rounded-full transition-all duration-500"
+                                         :class="{'w-full': activeCard === 'accord'}"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -407,41 +666,93 @@
     </section>
     
     <!-- Urgency Section -->
-    <section id="urgency" class="py-20 bg-gray-50 relative overflow-hidden section-transition">
-        <div class="absolute inset-0 z-0">
-            <div class="blob absolute bottom-0 -right-40 w-96 h-96 bg-mcaGreen/5 parallax" data-speed="0.02"></div>
-            <div class="blob absolute -top-20 -left-20 w-80 h-80 bg-mcaBlue/5 parallax" data-speed="0.04"></div>
+    <section id="urgency" class="py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 relative overflow-hidden section-transition">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 z-0 pointer-events-none">
+            <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-red-500/5 via-transparent to-yellow-500/5 dark:from-red-500/10 dark:to-yellow-500/10"></div>
+            <div class="blob absolute bottom-0 -right-40 w-96 h-96 bg-red-500/5 dark:bg-red-500/10 parallax" data-speed="0.02"></div>
+            <div class="blob absolute -top-20 -left-20 w-80 h-80 bg-yellow-500/5 dark:bg-yellow-500/10 parallax" data-speed="0.04"></div>
         </div>
         
         <div class="container mx-auto px-4 relative z-10">
             <div class="max-w-4xl mx-auto">
-                <div class="bg-white p-10 rounded-3xl shadow-xl opacity-0 animate-in">
-                    <h2 class="text-3xl md:text-5xl font-bold mb-8 text-mcaDarkBlue text-center">Time is Running Out</h2>
-                    
-                    <div class="flex flex-col md:flex-row items-center justify-between gap-10 mb-10">
-                        <div class="text-center p-6 bg-gray-50 rounded-xl">
-                            <div class="text-5xl font-bold text-mcaDarkBlue mb-2 stat-counter" id="countdown-years">4</div>
-                            <div class="text-xl text-gray-600">Years</div>
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <span class="inline-block py-1 px-3 rounded-full bg-red-500/10 text-red-600 dark:text-red-400 text-sm font-semibold mb-4">
+                        <i class="fa-solid fa-clock mr-1"></i> Immediate Action Needed
+                    </span>
+                    <h2 class="text-3xl md:text-5xl font-bold mb-6 text-mcaDarkBlue dark:text-white font-montserrat">
+                        Time is <span class="text-gradient bg-gradient-to-r from-red-500 to-yellow-500 bg-clip-text text-transparent">Running Out</span>
+                    </h2>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 p-8 md:p-10 rounded-3xl shadow-xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-10 mb-12">
+                        <div class="text-center p-6 bg-gray-50 dark:bg-gray-700 rounded-xl transform transition-all duration-300 hover:scale-105 hover:shadow-md" data-aos="zoom-in" data-aos-delay="200">
+                            <div class="text-5xl font-bold text-mcaDarkBlue dark:text-mcaBlue mb-2 countdown-number" id="countdown-years">4</div>
+                            <div class="text-xl text-gray-600 dark:text-gray-300">Years</div>
                         </div>
-                        <div class="text-center p-6 bg-gray-50 rounded-xl">
-                            <div class="text-5xl font-bold text-mcaDarkBlue mb-2 stat-counter" id="countdown-days">91</div>
-                            <div class="text-xl text-gray-600">Days</div>
+                        <div class="text-center p-6 bg-gray-50 dark:bg-gray-700 rounded-xl transform transition-all duration-300 hover:scale-105 hover:shadow-md" data-aos="zoom-in" data-aos-delay="300">
+                            <div class="text-5xl font-bold text-mcaDarkBlue dark:text-mcaBlue mb-2 countdown-number" id="countdown-days">91</div>
+                            <div class="text-xl text-gray-600 dark:text-gray-300">Days</div>
                         </div>
-                        <div class="text-center p-6 bg-gray-50 rounded-xl">
-                            <div class="text-3xl font-bold text-mcaDarkBlue mb-2" id="target-date">2028-04-22</div>
-                            <div class="text-lg text-gray-600">Target Date</div>
+                        <div class="text-center p-6 bg-gray-50 dark:bg-gray-700 rounded-xl transform transition-all duration-300 hover:scale-105 hover:shadow-md" data-aos="zoom-in" data-aos-delay="400">
+                            <div class="text-3xl font-bold text-mcaDarkBlue dark:text-mcaBlue mb-2" id="target-date">2028-04-22</div>
+                            <div class="text-lg text-gray-600 dark:text-gray-300">Target Date</div>
                         </div>
                     </div>
                     
-                    <p class="text-xl text-gray-600 mb-8 leading-relaxed">
-                        The climate crisis demands immediate action. While we've made progress, with renewable energy now powering 15% of global energy demand, it's not enough to prevent catastrophic climate change.
-                    </p>
+                    <div class="mb-12" data-aos="fade-up" data-aos-delay="200">
+                        <p class="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+                            The climate crisis demands immediate action. While we've made progress, with renewable energy now powering 15% of global energy demand, it's not enough to prevent catastrophic climate change.
+                        </p>
+                    </div>
                     
-                    <div class="p-6 bg-red-50 border-l-4 border-red-500 rounded-r-lg">
-                        <h3 class="font-bold text-red-700 mb-2">The Stakes Are High</h3>
-                        <p class="text-red-600">
+                    <div class="p-6 bg-gradient-to-r from-red-50 to-yellow-50 dark:from-red-900/20 dark:to-yellow-900/20 border-l-4 border-red-500 rounded-r-lg mb-10" data-aos="fade-left" data-aos-delay="300">
+                        <h3 class="font-bold text-red-700 dark:text-red-400 mb-2 flex items-center">
+                            <i class="fa-solid fa-triangle-exclamation mr-2"></i>
+                            The Stakes Are High
+                        </h3>
+                        <p class="text-red-600 dark:text-red-300">
                             Every day of inaction brings us closer to irreversible tipping points in our climate system. We must act now to secure a livable planet for future generations.
                         </p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-3 gap-6" x-data="{ activeIndex: null }">
+                        <div class="p-6 bg-white dark:bg-gray-700 shadow-md rounded-xl border border-gray-100 dark:border-gray-600 transform transition duration-300"
+                             :class="{ 'scale-105 shadow-lg border-red-200 dark:border-red-900': activeIndex === 0 }"
+                             @mouseenter="activeIndex = 0" 
+                             @mouseleave="activeIndex = null"
+                             data-aos="fade-up" data-aos-delay="300">
+                            <i class="fa-solid fa-temperature-high text-red-500 dark:text-red-400 text-3xl mb-4"></i>
+                            <div class="text-xl font-bold text-gray-800 dark:text-white mb-2">Rising Temperatures</div>
+                            <p class="text-gray-600 dark:text-gray-300">
+                                Global temperatures continue to rise at an alarming rate, resulting in extreme weather events.
+                            </p>
+                        </div>
+                        
+                        <div class="p-6 bg-white dark:bg-gray-700 shadow-md rounded-xl border border-gray-100 dark:border-gray-600 transform transition duration-300"
+                             :class="{ 'scale-105 shadow-lg border-red-200 dark:border-red-900': activeIndex === 1 }"
+                             @mouseenter="activeIndex = 1" 
+                             @mouseleave="activeIndex = null"
+                             data-aos="fade-up" data-aos-delay="400">
+                            <i class="fa-solid fa-water text-blue-500 dark:text-blue-400 text-3xl mb-4"></i>
+                            <div class="text-xl font-bold text-gray-800 dark:text-white mb-2">Sea Level Rise</div>
+                            <p class="text-gray-600 dark:text-gray-300">
+                                Rising sea levels threaten coastal communities and island nations worldwide.
+                            </p>
+                        </div>
+                        
+                        <div class="p-6 bg-white dark:bg-gray-700 shadow-md rounded-xl border border-gray-100 dark:border-gray-600 transform transition duration-300"
+                             :class="{ 'scale-105 shadow-lg border-red-200 dark:border-red-900': activeIndex === 2 }"
+                             @mouseenter="activeIndex = 2" 
+                             @mouseleave="activeIndex = null"
+                             data-aos="fade-up" data-aos-delay="500">
+                            <i class="fa-solid fa-seedling text-green-500 dark:text-green-400 text-3xl mb-4"></i>
+                            <div class="text-xl font-bold text-gray-800 dark:text-white mb-2">Biodiversity Loss</div>
+                            <p class="text-gray-600 dark:text-gray-300">
+                                Species are going extinct at unprecedented rates due to habitat destruction and climate change.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -449,63 +760,120 @@
     </section>
     
     <!-- Progress Section -->
-    <section id="progress" class="py-20 bg-white section-transition">
-        <div class="container mx-auto px-4">
-            <div class="max-w-3xl mx-auto text-center mb-16 opacity-0 animate-in">
-                <h2 class="text-3xl md:text-5xl font-bold mb-8 text-mcaDarkBlue">Our Progress</h2>
-                <p class="text-xl text-gray-600">
-                    While the challenge is enormous, we're making strides in the right direction. Countries around the world are beginning to transition to renewable energy.
-                </p>
-            </div>
-            
+    <section id="progress" class="py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 section-transition relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 z-0 pointer-events-none">
+            <div class="absolute top-20 right-0 w-1/3 h-1/3 bg-mcaGreen/5 dark:bg-mcaGreen/10 rounded-l-full"></div>
+            <div class="blob absolute -bottom-20 -left-20 w-80 h-80 bg-mcaBlue/5 dark:bg-mcaBlue/10"></div>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
             <div class="max-w-4xl mx-auto">
-                <div class="bg-gradient-to-r from-mcaBlue/5 to-mcaGreen/5 p-8 rounded-3xl">
-                    <div class="flex flex-col md:flex-row justify-between gap-8">
-                        <div class="flex-1 opacity-0 animate-in animate-delay-1">
-                            <div class="text-4xl font-bold text-mcaBlue mb-2">15%</div>
-                            <div class="text-lg text-gray-700 mb-4">of global energy demand now comes from renewable sources</div>
-                            <div class="w-full bg-gray-200 rounded-full h-4">
-                                <div class="progress-bar bg-gradient-to-r from-mcaBlue to-mcaGreen h-4 rounded-full flex items-center justify-end pr-2" style="width: 15%" data-target="15">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <span class="inline-block py-1 px-3 rounded-full bg-mcaGreen/10 text-mcaGreen dark:bg-mcaGreen/20 text-sm font-semibold mb-4">
+                        <i class="fa-solid fa-chart-line mr-1"></i> Moving Forward
+                    </span>
+                    <h2 class="text-3xl md:text-5xl font-bold mb-6 text-mcaDarkBlue dark:text-white font-montserrat">
+                        Our <span class="text-gradient bg-gradient-to-r from-mcaBlue to-mcaGreen bg-clip-text text-transparent">Progress</span>
+                    </h2>
+                    <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                        While the challenge is enormous, we're making strides in the right direction. Countries around the world are beginning to transition to renewable energy.
+                    </p>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-xl mb-16" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex flex-col md:flex-row justify-between gap-8 items-center">
+                        <div class="flex-1" data-aos="fade-right" data-aos-delay="200">
+                            <div class="flex justify-between items-end mb-2">
+                                <div class="text-4xl font-bold text-mcaBlue flex items-center gap-2">
+                                    <span class="counter" data-target="15">15</span>
+                                    <span>%</span>
+                                </div>
+                                <div class="text-gray-500 dark:text-gray-400 text-sm">TARGET: 50% by 2030</div>
+                            </div>
+                            <div class="text-lg text-gray-700 dark:text-gray-300 mb-4">of global energy demand now comes from renewable sources</div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-5 overflow-hidden">
+                                <div class="progress-bar bg-gradient-to-r from-mcaBlue to-mcaGreen h-5 rounded-full flex items-center justify-end pr-2 transition-all duration-1000" style="width: 15%" data-target="15">
                                     <span class="counter text-xs text-white font-bold">15%</span>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="flex-1 opacity-0 animate-in animate-delay-2">
-                            <div class="text-4xl font-bold text-mcaGreen mb-2">China</div>
-                            <div class="text-lg text-gray-700 mb-4">has made significant progress in renewable energy adoption since 2020</div>
-                            <div class="flex items-center mb-2">
-                                <div class="w-4 h-4 rounded-full bg-mcaGreen mr-2"></div>
-                                <span class="text-gray-600">Solar capacity expansion</span>
+                        <div class="flex-1" data-aos="fade-left" data-aos-delay="300">
+                            <div class="text-4xl font-bold text-mcaGreen mb-4">
+                                <i class="fa-solid fa-globe mr-2 text-3xl"></i> Global Impact
                             </div>
-                            <div class="flex items-center">
-                                <div class="w-4 h-4 rounded-full bg-mcaBlue mr-2"></div>
-                                <span class="text-gray-600">Wind power investment</span>
+                            <div class="space-y-4 text-gray-600 dark:text-gray-300">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-4 h-4 rounded-full bg-green-500"></div>
+                                    <span>98 countries have set net-zero targets</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-4 h-4 rounded-full bg-blue-500"></div>
+                                    <span>$500B invested in clean energy in 2023</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-4 h-4 rounded-full bg-purple-500"></div>
+                                    <span>30% decrease in coal use since 2015</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="grid md:grid-cols-3 gap-6 mt-12">
-                    <div class="p-6 bg-white shadow-lg rounded-xl border border-gray-100 opacity-0 animate-in animate-delay-2 card-hover">
-                        <div class="text-2xl font-bold text-mcaBlue mb-2">Growing Awareness</div>
-                        <p class="text-gray-600">
+                <div class="grid md:grid-cols-3 gap-6" x-data="{ activeCard: null }">
+                    <div class="p-6 bg-white dark:bg-gray-800 shadow-lg rounded-xl border border-gray-100 dark:border-gray-700 transition-all duration-300"
+                         :class="{ 'transform -translate-y-2 shadow-xl border-mcaBlue dark:border-mcaBlue': activeCard === 0 }"
+                         @mouseenter="activeCard = 0" 
+                         @mouseleave="activeCard = null"
+                         data-aos="fade-up" data-aos-delay="200">
+                        <div class="bg-mcaBlue/10 dark:bg-mcaBlue/20 p-3 rounded-full w-16 h-16 flex items-center justify-center mb-4 group-hover:bg-mcaBlue/20 transition-all duration-300">
+                            <i class="fa-solid fa-brain text-2xl text-mcaBlue"></i>
+                        </div>
+                        <div class="text-2xl font-bold text-mcaBlue mb-2 flex items-center">
+                            Growing Awareness
+                            <i class="fa-solid fa-arrow-right ml-2 opacity-0 group-hover:opacity-100 text-mcaBlue transition-all duration-300"></i>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300">
                             Public understanding of climate change has increased dramatically worldwide.
                         </p>
+                        <div class="mt-4 h-1 w-0 bg-mcaBlue rounded-full transition-all duration-500" :class="{ 'w-full': activeCard === 0 }"></div>
                     </div>
                     
-                    <div class="p-6 bg-white shadow-lg rounded-xl border border-gray-100 opacity-0 animate-in animate-delay-3 card-hover">
-                        <div class="text-2xl font-bold text-mcaGreen mb-2">Policy Changes</div>
-                        <p class="text-gray-600">
+                    <div class="p-6 bg-white dark:bg-gray-800 shadow-lg rounded-xl border border-gray-100 dark:border-gray-700 transition-all duration-300"
+                         :class="{ 'transform -translate-y-2 shadow-xl border-mcaGreen dark:border-mcaGreen': activeCard === 1 }"
+                         @mouseenter="activeCard = 1" 
+                         @mouseleave="activeCard = null"
+                         data-aos="fade-up" data-aos-delay="300">
+                        <div class="bg-mcaGreen/10 dark:bg-mcaGreen/20 p-3 rounded-full w-16 h-16 flex items-center justify-center mb-4 group-hover:bg-mcaGreen/20 transition-all duration-300">
+                            <i class="fa-solid fa-gavel text-2xl text-mcaGreen"></i>
+                        </div>
+                        <div class="text-2xl font-bold text-mcaGreen mb-2 flex items-center">
+                            Policy Changes
+                            <i class="fa-solid fa-arrow-right ml-2 opacity-0 group-hover:opacity-100 text-mcaGreen transition-all duration-300"></i>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300">
                             More governments are implementing carbon pricing and renewable energy subsidies.
                         </p>
+                        <div class="mt-4 h-1 w-0 bg-mcaGreen rounded-full transition-all duration-500" :class="{ 'w-full': activeCard === 1 }"></div>
                     </div>
                     
-                    <div class="p-6 bg-white shadow-lg rounded-xl border border-gray-100 opacity-0 animate-in animate-delay-4 card-hover">
-                        <div class="text-2xl font-bold text-mcaDarkBlue mb-2">Innovation</div>
-                        <p class="text-gray-600">
+                    <div class="p-6 bg-white dark:bg-gray-800 shadow-lg rounded-xl border border-gray-100 dark:border-gray-700 transition-all duration-300"
+                         :class="{ 'transform -translate-y-2 shadow-xl border-mcaDarkBlue dark:border-mcaDarkBlue': activeCard === 2 }"
+                         @mouseenter="activeCard = 2" 
+                         @mouseleave="activeCard = null"
+                         data-aos="fade-up" data-aos-delay="400">
+                        <div class="bg-mcaDarkBlue/10 dark:bg-mcaDarkBlue/20 p-3 rounded-full w-16 h-16 flex items-center justify-center mb-4 group-hover:bg-mcaDarkBlue/20 transition-all duration-300">
+                            <i class="fa-solid fa-lightbulb text-2xl text-mcaDarkBlue dark:text-mcaBlue"></i>
+                        </div>
+                        <div class="text-2xl font-bold text-mcaDarkBlue dark:text-mcaBlue mb-2 flex items-center">
+                            Innovation
+                            <i class="fa-solid fa-arrow-right ml-2 opacity-0 group-hover:opacity-100 text-mcaDarkBlue dark:text-mcaBlue transition-all duration-300"></i>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300">
                             Clean energy technology costs have fallen dramatically in the past decade.
                         </p>
+                        <div class="mt-4 h-1 w-0 bg-mcaDarkBlue dark:bg-mcaBlue rounded-full transition-all duration-500" :class="{ 'w-full': activeCard === 2 }"></div>
                     </div>
                 </div>
             </div>
@@ -513,26 +881,130 @@
     </section>
     
     <!-- Call to Action Section -->
-    <section id="join" class="py-24 bg-gradient-to-br from-mcaDarkBlue via-mcaBlue to-mcaGreen text-white section-transition">
-        <div class="container mx-auto px-4">
-            <div class="max-w-3xl mx-auto text-center opacity-0 animate-in">
-                <h2 class="text-3xl md:text-5xl font-bold mb-8">Join the Manchuro Climate Accord</h2>
+    <section id="join" class="py-24 relative overflow-hidden section-transition">
+        <!-- Background gradient -->
+        <div class="absolute inset-0 bg-gradient-to-br from-mcaDarkBlue via-mcaBlue to-mcaGreen opacity-90 z-0"></div>
+        
+        <!-- Particle overlay -->
+        <div class="absolute inset-0 z-0">
+            <div class="particles-container h-full w-full"></div>
+        </div>
+        
+        <!-- Wave effect at top -->
+        <div class="absolute top-0 left-0 right-0 h-20 z-0">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="absolute bottom-0 w-full h-full">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0z" class="fill-white dark:fill-gray-900 opacity-10"></path>
+            </svg>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
+                <h2 class="text-3xl md:text-5xl font-bold mb-8 text-white font-montserrat">
+                    Join the Manchuro Climate Accord
+                </h2>
                 <p class="text-xl mb-12 text-blue-50">
                     Together, we can change the world. From micronations to local communities, to regional, national, and international levels—we all have a part to play in securing our planet's future.
                 </p>
-                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-3xl">
-                    <h3 class="text-2xl font-bold mb-6">Join Our Discord Community</h3>
-                    <div class="flex flex-col items-center justify-center space-y-6">
-                        <div class="flex items-center justify-center bg-[#5865F2]/20 w-full py-6 px-4 rounded-xl">
-                            <span class="text-xl font-semibold">Connect with fellow climate advocates</span>
+
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative overflow-hidden rounded-2xl mb-8">
+                        <!-- Discord card with glow effect -->
+                        <div class="absolute inset-0 bg-[#5865F2]/30 blur-xl rounded-2xl"></div>
+                        <div class="relative bg-gradient-to-br from-[#5865F2]/80 to-[#7289DA]/80 p-8 rounded-2xl shadow-xl">
+                            <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+                                <div class="text-left">
+                                    <h3 class="text-2xl font-bold mb-4 text-white flex items-center">
+                                        <i class="fab fa-discord text-3xl mr-3"></i>
+                                        Join Our Discord Community
+                                    </h3>
+                                    <p class="text-blue-50 mb-4">
+                                        Connect with fellow climate advocates, participate in discussions, and get involved in our initiatives.
+                                    </p>
+                                    <div class="flex items-center space-x-2 text-sm text-blue-100 mb-6">
+                                        <span class="inline-flex items-center px-2 py-1 bg-[#5865F2]/30 rounded-full">
+                                            <span class="w-2 h-2 bg-green-400 rounded-full mr-1 animate-pulse"></span>
+                                            <span>Online Now</span>
+                                        </span>
+                                        <span>•</span>
+                                        <span>385+ Members</span>
+                                    </div>
+                                </div>
+                                <a href="https://discord.gg/Z4kBHX75YQ" target="_blank" 
+                                   class="px-6 py-4 bg-white text-[#5865F2] hover:bg-gray-100 font-bold rounded-lg transition-colors duration-300 flex items-center justify-center group focus:ring-4 focus:ring-white/20"
+                                   data-aos="zoom-in" data-aos-delay="300">
+                                    <i class="fab fa-discord mr-2 text-xl group-hover:scale-110 transition-transform"></i>
+                                    <span>Join Discord</span>
+                                    <i class="fas fa-arrow-right ml-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all"></i>
+                                </a>
+                            </div>
                         </div>
-                        <a href="https://discord.gg/Z4kBHX75YQ" target="_blank" class="px-8 py-4 bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold rounded-lg transition-colors duration-300 flex items-center justify-center w-full md:w-auto">
-                            <svg class="w-6 h-6 mr-2" viewBox="0 0 71 55" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M60.1045 4.8978C55.5792 2.8214 50.7265 1.2916 45.6527 0.41542C45.5603 0.39851 45.468 0.440769 45.4204 0.525289C44.7963 1.6353 44.105 3.0834 43.6209 4.2216C38.1637 3.4046 32.7345 3.4046 27.3892 4.2216C26.905 3.0581 26.1886 1.6353 25.5617 0.525289C25.5141 0.443589 25.4218 0.40133 25.3294 0.41542C20.2584 1.2888 15.4057 2.8186 10.8776 4.8978C10.8384 4.9147 10.8048 4.9429 10.7825 4.9795C1.57795 18.7309 -0.943561 32.1443 0.293408 45.3914C0.299005 45.4562 0.335386 45.5182 0.385761 45.5576C6.45866 50.0174 12.3413 52.7249 18.1147 54.5195C18.2071 54.5477 18.305 54.5139 18.3638 54.4378C19.7295 52.5728 20.9469 50.6063 21.9907 48.5383C22.0523 48.4172 21.9935 48.2735 21.8676 48.2256C19.9366 47.4931 18.0979 46.6 16.3292 45.5858C16.1893 45.5041 16.1781 45.304 16.3068 45.2082C16.679 44.9293 17.0513 44.6391 17.4067 44.3461C17.471 44.2926 17.5606 44.2813 17.6362 44.3151C29.2558 49.6202 41.8354 49.6202 53.3179 44.3151C53.3935 44.2785 53.4831 44.2898 53.5502 44.3433C53.9057 44.6363 54.2779 44.9293 54.6529 45.2082C54.7816 45.304 54.7732 45.5041 54.6333 45.5858C52.8646 46.6197 51.0259 47.4931 49.0921 48.2228C48.9662 48.2707 48.9102 48.4172 48.9718 48.5383C50.038 50.6034 51.2554 52.5699 52.5959 54.435C52.6519 54.5139 52.7526 54.5477 52.845 54.5195C58.6464 52.7249 64.529 50.0174 70.6019 45.5576C70.6551 45.5182 70.6887 45.459 70.6943 45.3942C72.1747 30.0791 68.2147 16.7757 60.1968 4.9823C60.1772 4.9429 60.1437 4.9147 60.1045 4.8978ZM23.7259 37.3253C20.2276 37.3253 17.3451 34.1136 17.3451 30.1693C17.3451 26.225 20.1717 23.0133 23.7259 23.0133C27.308 23.0133 30.1626 26.2532 30.1066 30.1693C30.1066 34.1136 27.28 37.3253 23.7259 37.3253ZM47.3178 37.3253C43.8196 37.3253 40.9371 34.1136 40.9371 30.1693C40.9371 26.225 43.7636 23.0133 47.3178 23.0133C50.9 23.0133 53.7545 26.2532 53.6986 30.1693C53.6986 34.1136 50.9 37.3253 47.3178 37.3253Z" fill="currentColor"/>
-                            </svg>
-                            Join our Discord
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6" x-data="{ selected: 'micronation' }">
+                        <div class="bg-white/10 rounded-xl p-6 cursor-pointer transition-all duration-300 border-2"
+                             :class="{ 'border-white': selected === 'micronation', 'border-transparent hover:border-white/50': selected !== 'micronation' }"
+                             @click="selected = 'micronation'"
+                             data-aos="fade-right" data-aos-delay="400">
+                            <div class="flex items-start mb-4">
+                                <div class="bg-mcaBlue/20 p-3 rounded-full mr-3">
+                                    <i class="fas fa-flag text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold text-white">For Micronations</h4>
+                                    <p class="text-blue-100">Represent your micronation in our global coalition</p>
+                                </div>
+                            </div>
+                            <div x-show="selected === 'micronation'" class="text-blue-50 space-y-3 mt-4">
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span>Official diplomatic recognition</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span>Access to climate policy resources</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span>Participation in decision-making</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white/10 rounded-xl p-6 cursor-pointer transition-all duration-300 border-2"
+                             :class="{ 'border-white': selected === 'individual', 'border-transparent hover:border-white/50': selected !== 'individual' }"
+                             @click="selected = 'individual'"
+                             data-aos="fade-left" data-aos-delay="500">
+                            <div class="flex items-start mb-4">
+                                <div class="bg-mcaGreen/20 p-3 rounded-full mr-3">
+                                    <i class="fas fa-user text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold text-white">For Individuals</h4>
+                                    <p class="text-blue-100">Contribute as a climate advocate and volunteer</p>
+                                </div>
+                            </div>
+                            <div x-show="selected === 'individual'" class="text-blue-50 space-y-3 mt-4">
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span>Join working groups focused on solutions</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span>Access to education and resources</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                    <span>Networking with like-minded advocates</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 pt-8 border-t border-white/20" data-aos="fade-up" data-aos-delay="600">
+                        <p class="text-white text-lg mb-4">Start your journey with us today</p>
+                        <a href="https://discord.gg/Z4kBHX75YQ" target="_blank" class="inline-block px-8 py-4 bg-gradient-to-r from-mcaBlue to-mcaGreen text-white font-bold rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 focus:ring-4 focus:ring-white/20">
+                            Get Started
                         </a>
-                        <p class="text-blue-100 text-sm">Discord invite: https://discord.gg/Z4kBHX75YQ</p>
                     </div>
                 </div>
             </div>
@@ -540,47 +1012,104 @@
     </section>
     
     <!-- Footer -->
-    <footer class="py-12 bg-gray-900 text-gray-400">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-6 md:mb-0">
-                    <div class="text-2xl font-bold text-white flex items-center">
-                        <img src="logo.png" alt="Manchuro Climate Accord Logo" class="w-8 h-8 mr-2 rounded-full">
-                        Manchuro Climate Accord
+    <footer class="relative py-16 bg-gradient-to-b from-gray-900 to-gray-950 text-gray-400 overflow-hidden">
+        <!-- Background Particles -->
+        <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+            <div class="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-black/20 to-transparent"></div>
+            <div class="absolute -top-20 -right-20 w-96 h-96 rounded-full bg-mcaBlue/5 blur-3xl"></div>
+            <div class="absolute -bottom-40 -left-20 w-80 h-80 rounded-full bg-mcaGreen/5 blur-3xl"></div>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                <div class="space-y-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center">
+                        <img src="logo.png" alt="Manchuro Climate Accord Logo" class="w-12 h-12 mr-3 rounded-full">
+                        <h3 class="text-2xl font-bold text-white">MCA</h3>
                     </div>
-                    <p class="mt-2 text-sm">Our only home. Our shared responsibility.</p>
+                    <p class="text-gray-400">Our only home. Our shared responsibility.</p>
+                    <div class="flex space-x-4 pt-2">
+                        <a href="https://discord.gg/Z4kBHX75YQ" target="_blank" class="text-indigo-400 hover:text-white transition-colors">
+                            <i class="fab fa-discord text-xl"></i>
+                        </a>
+                        <a href="#" class="text-blue-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-green-400 hover:text-white transition-colors">
+                            <i class="fas fa-leaf text-xl"></i>
+                        </a>
+                    </div>
                 </div>
-                
-                <div class="flex space-x-8 text-sm">
-                    <a href="#mission" class="hover:text-white transition-colors">Mission</a>
-                    <a href="#about" class="hover:text-white transition-colors">About</a>
-                    <a href="#etymology" class="hover:text-white transition-colors">Etymology</a>
-                    <a href="#urgency" class="hover:text-white transition-colors">Urgency</a>
-                    <a href="#progress" class="hover:text-white transition-colors">Progress</a>
-                    <a href="#join" class="hover:text-white transition-colors">Join Us</a>
+
+                <div class="space-y-4" data-aos="fade-up" data-aos-delay="200">
+                    <h4 class="text-xl font-bold text-white border-b border-gray-800 pb-2 mb-4">Site Map</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#mission" class="hover:text-mcaGreen transition-colors flex items-center">
+                            <i class="fa-solid fa-caret-right mr-2 text-mcaGreen"></i> Mission
+                        </a></li>
+                        <li><a href="#about" class="hover:text-mcaGreen transition-colors flex items-center">
+                            <i class="fa-solid fa-caret-right mr-2 text-mcaGreen"></i> About
+                        </a></li>
+                        <li><a href="#etymology" class="hover:text-mcaGreen transition-colors flex items-center">
+                            <i class="fa-solid fa-caret-right mr-2 text-mcaGreen"></i> Etymology
+                        </a></li>
+                    </ul>
+                </div>
+
+                <div class="space-y-4" data-aos="fade-up" data-aos-delay="300">
+                    <h4 class="text-xl font-bold text-white border-b border-gray-800 pb-2 mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#urgency" class="hover:text-mcaGreen transition-colors flex items-center">
+                            <i class="fa-solid fa-caret-right mr-2 text-mcaGreen"></i> Urgency
+                        </a></li>
+                        <li><a href="#progress" class="hover:text-mcaGreen transition-colors flex items-center">
+                            <i class="fa-solid fa-caret-right mr-2 text-mcaGreen"></i> Progress
+                        </a></li>
+                        <li><a href="#join" class="hover:text-mcaGreen transition-colors flex items-center">
+                            <i class="fa-solid fa-caret-right mr-2 text-mcaGreen"></i> Join Us
+                        </a></li>
+                    </ul>
+                </div>
+
+                <div class="space-y-4" data-aos="fade-up" data-aos-delay="400">
+                    <h4 class="text-xl font-bold text-white border-b border-gray-800 pb-2 mb-4">Connect</h4>
+                    <div class="bg-gray-800/50 rounded-lg p-4">
+                        <a href="https://discord.gg/Z4kBHX75YQ" target="_blank" class="flex items-center justify-center bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg p-3 transition-colors mb-3">
+                            <i class="fab fa-discord mr-2"></i> Join our Discord
+                        </a>
+                        <p class="text-sm text-gray-500">Discord invite: https://discord.gg/Z4kBHX75YQ</p>
+                    </div>
                 </div>
             </div>
             
             <div class="mt-8 pt-8 border-t border-gray-800 text-center text-sm">
                 <p>&copy; <span class="copyright-year">2023</span> Manchuro Climate Accord. All rights reserved.</p>
-                <p class="mt-4 text-gray-500">Developed by <a href="https://juliaklee.wtf" target="_blank" class="text-mcaBlue hover:text-mcaGreen transition-colors">Júlia Klee</a></p>
+                <div class="flex justify-center mt-4 space-x-4 text-gray-500">
+                    <a href="sitemap.xml" class="hover:text-white transition-colors">
+                        <i class="fa-solid fa-sitemap mr-1"></i> Sitemap
+                    </a>
+                    <span>|</span>
+                    <a href="https://juliaklee.wtf" target="_blank" class="text-mcaBlue hover:text-mcaGreen transition-colors">
+                        <i class="fa-solid fa-code mr-1"></i> Developed by Júlia Klee
+                    </a>
+                </div>
             </div>
         </div>
+
+        <!-- Back to top button -->
+        <button 
+            @click="window.scrollTo({top: 0, behavior: 'smooth'})" 
+            class="fixed bottom-6 right-6 bg-mcaBlue text-white p-3 rounded-full shadow-lg hover:bg-mcaGreen transition-colors z-50 group"
+            aria-label="Back to top">
+            <i class="fa-solid fa-arrow-up group-hover:animate-bounce"></i>
+        </button>
     </footer>
     
     <script src="script.js"></script>
     <script>
-        // Charter banner functionality
-        $(document).ready(function() {
-            // Show banner after delay
-            setTimeout(function() {
-                $('#charter-banner').addClass('show');
-            }, 1500);
-            
-            // Close banner when clicked
-            $('#close-banner').on('click', function() {
-                $('#charter-banner').removeClass('show');
-            });
+        // Initialize AOS once document is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init();
         });
     </script>
 </body>

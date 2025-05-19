@@ -172,4 +172,303 @@ input:focus, button:focus {
     p {
         font-size: calc(0.9rem + 0.5vw);
     }
+}
+
+/* Base Styles */
+:root {
+    --mcaGreen: #34D399;
+    --mcaBlue: #3B82F6;
+    --mcaDarkBlue: #1E40AF;
+}
+
+body {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+.dark {
+    color-scheme: dark;
+}
+
+/* Typography */
+.text-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/* Navigation */
+.nav-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    color: #4B5563;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.dark .nav-link {
+    color: #E5E7EB;
+}
+
+.nav-link:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0.75rem;
+    background: linear-gradient(to right, var(--mcaBlue), var(--mcaGreen));
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+
+.nav-link:hover {
+    color: var(--mcaBlue);
+}
+
+.dark .nav-link:hover {
+    color: var(--mcaGreen);
+}
+
+.nav-link:hover:after {
+    width: calc(100% - 1.5rem);
+}
+
+/* Cards and hover effects */
+.card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+    transform: translateY(-5px);
+}
+
+.icon-container {
+    transition: all 0.3s ease;
+}
+
+.btn-hover-effect {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-hover-effect:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(59, 130, 246, 0.3), rgba(52, 211, 153, 0.3));
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    transition: transform 0.5s ease-out;
+}
+
+.btn-hover-effect:hover:before {
+    transform: scaleX(1);
+}
+
+/* Clock animation */
+.clock-ring {
+    stroke-dasharray: 283;
+    stroke-dashoffset: 0;
+    transform-origin: center;
+    transform: rotate(-90deg);
+    transition: stroke-dashoffset 1s ease-in-out;
+}
+
+.pulse-element {
+    animation: pulse-animation 4s infinite;
+}
+
+@keyframes pulse-animation {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Blob animations */
+.blob {
+    animation: blob 7s infinite;
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    background-size: 200% 200%;
+    background-position: 0 0;
+}
+
+@keyframes blob {
+    0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    25% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+    50% { border-radius: 50% 60% 30% 70% / 30% 60% 70% 40%; }
+    75% { border-radius: 40% 60% 70% 30% / 60% 40% 20% 80%; }
+    100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+}
+
+/* Section transitions */
+.section-transition {
+    transition: all 0.5s ease-in-out;
+    position: relative;
+}
+
+.section-transition:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.05));
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    pointer-events: none;
+}
+
+.dark .section-transition:before {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
+}
+
+.section-transition.section-active:before {
+    opacity: 1;
+}
+
+/* Charter Button Styles */
+.charter-button {
+    position: fixed;
+    right: 20px;
+    bottom: 80px;
+    z-index: 1000;
+    transform-origin: bottom right;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.charter-button:hover {
+    transform: scale(1.05);
+}
+
+.charter-button-inner {
+    background: linear-gradient(135deg, var(--mcaDarkBlue), var(--mcaBlue), var(--mcaGreen));
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.3);
+    backdrop-filter: blur(4px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 12px 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.charter-button-inner:hover {
+    box-shadow: 0 8px 32px rgba(52, 211, 153, 0.4);
+}
+
+.charter-icon {
+    margin-right: 10px;
+}
+
+.charter-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(90deg, var(--mcaDarkBlue), var(--mcaBlue), var(--mcaGreen));
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    z-index: 1000;
+    transform: translateY(-100%);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.charter-banner.show {
+    transform: translateY(0);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .charter-button {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .charter-button-inner {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Dark Mode Specific Styles */
+.dark .bg-white {
+    background-color: #1F2937;
+}
+
+.dark .text-gray-800 {
+    color: #F3F4F6;
+}
+
+.dark .border-gray-200 {
+    border-color: #374151;
+}
+
+.dark .shadow-lg {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 
+                0 4px 6px -2px rgba(0, 0, 0, 0.1);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.dark ::-webkit-scrollbar-track {
+    background: #2D3748;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, var(--mcaBlue), var(--mcaGreen));
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #2563EB, #10B981);
 } 

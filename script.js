@@ -241,4 +241,233 @@ $('.stat-counter').each(function() {
             $this.text(this.countNum);
         }
     });
+});
+
+// Initialize AOS animation library
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize AOS
+  AOS.init({
+    duration: 800,
+    once: false,
+    mirror: true,
+    offset: 50
+  });
+
+  // Initialize counters for stats
+  initCounters();
+  
+  // Initialize particles background
+  createParticles();
+
+  // Update countdown
+  updateCountdown();
+
+  // Initialize the scrolling animation observer
+  initScrollObserver();
+});
+
+// Countdown timer functionality
+function updateCountdown() {
+  // Target date (2028-04-22)
+  const targetDate = new Date('2028-04-22');
+  const currentDate = new Date();
+  
+  // Calculate time remaining
+  const totalSeconds = (targetDate - currentDate) / 1000;
+  const days = Math.floor(totalSeconds / 3600 / 24);
+  const years = Math.floor(days / 365);
+  const remainingDays = days % 365;
+  
+  // Update the DOM
+  const yearsDisplay = document.getElementById('years');
+  const daysDisplay = document.getElementById('days');
+  const countdownYears = document.getElementById('countdown-years');
+  const countdownDays = document.getElementById('countdown-days');
+  
+  if (yearsDisplay) yearsDisplay.textContent = years;
+  if (daysDisplay) daysDisplay.textContent = remainingDays;
+  if (countdownYears) countdownYears.textContent = years;
+  if (countdownDays) countdownDays.textContent = remainingDays;
+  
+  // Update countdown every day
+  setTimeout(updateCountdown, 24 * 60 * 60 * 1000);
+}
+
+// Create the particle effect for the background
+function createParticles() {
+  const particlesContainer = document.querySelector('.particles-container');
+  if (!particlesContainer) return;
+  
+  const particleCount = 50;
+  
+  for (let i = 0; i < particleCount; i++) {
+    const particle = document.createElement('div');
+    const size = Math.random() * 5 + 2;
+    
+    particle.style.position = 'absolute';
+    particle.style.width = `${size}px`;
+    particle.style.height = `${size}px`;
+    particle.style.backgroundColor = i % 2 === 0 ? '#3B82F6' : '#34D399';
+    particle.style.borderRadius = '50%';
+    particle.style.top = `${Math.random() * 100}%`;
+    particle.style.left = `${Math.random() * 100}%`;
+    particle.style.opacity = `${Math.random() * 0.5 + 0.1}`;
+    particle.style.filter = 'blur(1px)';
+    
+    // Set animation properties
+    particle.style.animation = `
+      floatParticle ${Math.random() * 10 + 10}s infinite linear,
+      pulsate ${Math.random() * 4 + 2}s infinite ease-in-out
+    `;
+    
+    // Set animation delay
+    particle.style.animationDelay = `${Math.random() * 5}s`;
+    
+    // Set transform origin
+    particle.style.transformOrigin = 'center center';
+    
+    particlesContainer.appendChild(particle);
+  }
+
+  // Add CSS for the particle animations
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes floatParticle {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      25% { transform: translate(${Math.random() * 100}px, ${Math.random() * 100}px) rotate(90deg); }
+      50% { transform: translate(${Math.random() * -100}px, ${Math.random() * 100}px) rotate(180deg); }
+      75% { transform: translate(${Math.random() * -100}px, ${Math.random() * -100}px) rotate(270deg); }
+      100% { transform: translate(0, 0) rotate(360deg); }
+    }
+    
+    @keyframes pulsate {
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(1.2); opacity: 0.8; }
+    }
+  `;
+  document.head.appendChild(style);
+}
+
+// Initialize counters and animated progress bars
+function initCounters() {
+  // Animate the progress bars
+  const progressBars = document.querySelectorAll('.progress-bar');
+  progressBars.forEach(bar => {
+    const target = parseInt(bar.getAttribute('data-target') || '0');
+    const counter = bar.querySelector('.counter');
+    
+    // Animate the width
+    bar.style.width = '0%';
+    setTimeout(() => {
+      bar.style.width = `${target}%`;
+    }, 500);
+    
+    // Animate the counter
+    if (counter) {
+      let count = 0;
+      const interval = setInterval(() => {
+        count += 1;
+        counter.textContent = `${count}%`;
+        if (count >= target) clearInterval(interval);
+      }, 20);
+    }
+  });
+  
+  // Animate stat counters
+  const statCounters = document.querySelectorAll('.stat-counter');
+  statCounters.forEach(counter => {
+    const target = parseInt(counter.textContent || '0');
+    const duration = 2000; // 2 seconds
+    const steps = 50;
+    const stepTime = duration / steps;
+    const increment = target / steps;
+    
+    let current = 0;
+    let counterInterval = setInterval(() => {
+      current += increment;
+      if (current > target) current = target;
+      counter.textContent = Math.floor(current);
+      if (current >= target) clearInterval(counterInterval);
+    }, stepTime);
+  });
+}
+
+// Initialize scroll animation observer
+function initScrollObserver() {
+  // Get all sections
+  const sections = document.querySelectorAll('section');
+  
+  // Create intersection observer
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      // Add 'active' class when section is in viewport
+      if (entry.isIntersecting) {
+        entry.target.classList.add('section-active');
+        
+        // Refresh AOS animations when section becomes visible
+        setTimeout(() => {
+          AOS.refresh();
+        }, 100);
+      }
+    });
+  }, { threshold: 0.1 }); // Trigger when 10% of the section is visible
+  
+  // Observe all sections
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+  
+  // Update copyright year
+  const copyrightYear = document.querySelector('.copyright-year');
+  if (copyrightYear) {
+    copyrightYear.textContent = new Date().getFullYear();
+  }
+}
+
+// Dark mode toggle 
+document.addEventListener('DOMContentLoaded', function() {
+  // Check for dark mode preference
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const savedDarkMode = localStorage.getItem('darkMode');
+  
+  // If there's no saved preference, use system preference
+  if (savedDarkMode === null) {
+    localStorage.setItem('darkMode', prefersDark.toString());
+    
+    // Set initial state without Alpine.js (as a fallback)
+    if (prefersDark) {
+      document.documentElement.classList.add('dark');
+    }
+  } else if (savedDarkMode === 'true') {
+    // Set initial state without Alpine.js (as a fallback)
+    document.documentElement.classList.add('dark');
+  }
+  
+  // Handle dark mode toggle when Alpine.js isn't loaded yet
+  const darkModeToggle = document.querySelector('[aria-label="Toggle dark mode"]');
+  if (darkModeToggle) {
+    darkModeToggle.addEventListener('click', function() {
+      const isDark = document.documentElement.classList.contains('dark');
+      if (isDark) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('darkMode', 'false');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('darkMode', 'true');
+      }
+    });
+  }
+});
+
+// Alpine.js initialization
+document.addEventListener('alpine:init', () => {
+  // Initialize dark mode if Alpine.js is available
+  Alpine.data('darkModeData', () => ({
+    darkMode: localStorage.getItem('darkMode') === 'true',
+    toggleDarkMode() {
+      this.darkMode = !this.darkMode;
+      localStorage.setItem('darkMode', this.darkMode);
+      document.documentElement.classList.toggle('dark', this.darkMode);
+    }
+  }));
 }); 
